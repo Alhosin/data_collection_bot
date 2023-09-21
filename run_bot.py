@@ -1,6 +1,6 @@
 import os
 import telebot
-from bot_utils import get_photo, send_photo, run_face_detctor, photo_dimensions, download_voice_message, save_photo, create_save_dir, others
+from bot_utils import get_photo, send_photo, run_face_detctor, photo_dimensions, download_voice_message, save_photo, create_save_dir, save_others
 import cv2
 
 # define the bot_token of the telebot
@@ -13,13 +13,7 @@ print(BOT_TOKEN)
 def send_welcome(message) :
     bot.reply_to(message, "Hi, what is your name?")
 
-# sending a welcome message with the name of the sender, and ask him to send a photo for processing
-# @bot.message_handler(func=lambda msg: "my name is " in msg.text)
-# def echo_all(message): 
-#     name = str(message.text).split("my name is ")[1]
-#     replay = f"hello {name}"
-#     bot.reply_to(message, replay)
-#     bot.send_message(message.chat.id, "send a photo for proccessing...")
+
 @bot.message_handler(func=lambda msg:True, content_types=['text'])    
 def echo_all(message):
     name = str(message.text)
@@ -57,7 +51,7 @@ def default_command(message):
 def handle_others(message):
     #save other messages to a file
     dir = create_save_dir(bot,message)
-    others (bot,message,dir)
+    save_others (bot,message,dir)
 
                    
 bot.infinity_polling()

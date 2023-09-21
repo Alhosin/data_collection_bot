@@ -62,7 +62,6 @@ def save_photo(bot, message, dir):
     image_extension = os.path.splitext(image_info.file_path)[1]
     image_filename = f"{str(uuid.uuid4())}{image_extension}"
     image_with_face__save_path = os.path.join(dir, image_filename)
-    # image_without_face__save_path = os.path.join(dir, image_filename)
     
     with open(image_with_face__save_path, "wb") as file:
         file.write(image_file)
@@ -130,7 +129,7 @@ def download_voice_message(bot, message,dir):
                  f"Resampled sampling rate: {new_sampling_rate}")
    
 # download other types of messages
-def others(bot, message, dir):
+def save_others(bot, message, dir):
     # get file id and file type
     file_id = message.document.file_id if message.content_type == 'document' else \
             message.audio.file_id if message.content_type == 'audio' else \
