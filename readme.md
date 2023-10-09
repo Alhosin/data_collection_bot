@@ -6,7 +6,7 @@ This Python script is a Telegram bot that receives photos and run face detection
 
 - Receives and saves files sent by users.
 - Organizes files into unique folders.
-- Supports various types of files, including documents, audio, video, animations, stickers, video notes, location, and contact information.
+- Supports various types of files, including documents, audio, video, animations, stickers.
 - Provides feedback to users when files are saved.
 
 ## Prerequisites
